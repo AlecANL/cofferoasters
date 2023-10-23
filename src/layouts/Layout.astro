@@ -1,4 +1,9 @@
 ---
+import Menu from "@components/shared/menu.astro";
+import Logo from "@components/shared/logo.astro";
+import '@assets/styles/icons.css';
+import '@assets/styles/font.css';
+import Footer from "../components/shared/footer.astro";
 interface Props {
 	title: string;
 }
@@ -17,35 +22,183 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+	<div class="body-wrapper">
+		<header class="header">
+			<Logo/>
+			<Menu/>
+			<div class=menu-icon>
+				<span class="line"></span>
+			</div>
+		</header>
 		<slot />
+		<Footer/>
+	</div>
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--barlowFont: 'Barlow';
+		--frauncesFont: 'Fraunces';
+		--bg-body: hsla(45, 80%, 98%, 1.00);
+		--dark-grey-blue: hsla(211, 19%, 21%, 1.00);
+		--max-width: 1280px;
+		--body-padding: 1.5rem;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+	*, *::before, *::after {
+		box-sizing: border-box;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: var(--barlowFont);
+		background-color: var(--bg-body);
 	}
+
+	a {
+		text-decoration: none;
+		font-family: inherit;
+	}
+	
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1, h2, h3, h4, h5, h6, button {
+		margin: 0;
+		padding: 0;
+		font-family: var(--frauncesFont);
+	}
+
+	.body-wrapper {
+			max-inline-size: var(--max-width);
+			padding-inline: var(--body-padding);
+			margin-inline: auto;
+		margin-block: 0 72px;
+	}
+
+	.header, .footer-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			outline: 1px solid red;
+	}
+	
+
+	
+	.header {
+		padding-block: 1.5rem;
+		
+		@media (min-width: 480px) {
+			justify-content: space-between;
+		}
+	}
+	
+	.menu-icon {
+		position: relative;
+		inline-size: 1.5rem;
+		block-size: 1rem;
+		
+		@media (min-width: 480px) {
+			display: none;
+		}
+	}
+	
+	.menu-icon.open {
+		.line {
+			background: transparent;
+		}
+		
+		.line:after {
+			transform: translateY(-50%) rotate(-45deg);
+		}
+		
+		.line:before {
+			top: 50%;
+			transform: translateY(-50%) rotate(45deg);
+		}
+	}
+	
+	.line {
+		display: block;
+		inline-size: 100%;
+		block-size: 2px;
+		background: blue;
+		transition: background .4s ease-in-out;
+		@media (min-width: 480px) {
+			display: none;
+		}
+	}
+	
+	.line:after {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		content: '';
+		display: block;
+		inline-size: 100%;
+		block-size: 2px;
+		background: green;
+		transition: transform .3s ease-in-out;
+	}
+	
+	.line:before {
+		position: absolute;
+		top: 100%;
+		transform: translateY(-50%);
+		content: '';
+		display: block;
+		inline-size: 100%;
+		block-size: 2px;
+		background: blue;
+		transition: transform .3s ease-in-out;
+	}
+
+
+
+	.header {
+		.menu {
+			position: fixed;
+			top: 80px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-block: 40px;
+			text-align: center;
+			transform: translateX(100%);
+			background: linear-gradient(180deg, rgba(254, 252, 247) 20%, #fefcf7f0 60.94%);
+			transition: transform .3s ease-in-out;
+			
+			@media (min-width: 480px) {
+				padding-block: 0;
+				position: static;
+				transform: translateX(0);
+			}
+		}
+		
+		
+		.menu.menu--open {
+			transform: translateX(0);
+		}
+		
+
+	}
+
+
+
 </style>
+
+<script>
+	const menuIcon = document.querySelector('.menu-icon');
+	const menu = document.querySelector('.menu');
+
+	menuIcon.addEventListener('click', () => {
+		menu.classList.toggle('menu--open');
+		menuIcon.classList.toggle('open');
+	});
+</script>

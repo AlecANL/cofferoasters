@@ -1,0 +1,17 @@
+[
+  {
+    "id": "7ea88ea9-faa4-45d5-ac75-904372e46a28",
+    "url": "https://facebook.com/",
+    "icon": "icon-facebook"
+  },
+  {
+    "id": "1ea88ea9-faa4-45d5-ac75-904372e46a28",
+    "url": "https://x.com/",
+    "icon": "icon-twitterx"
+  },
+  {
+    "id": "0ea88ea9-faa4-45d5-ac75-904372e46a28",
+    "url": "https://instagram.com/",
+    "icon": "icon-instagram"
+  }
+]

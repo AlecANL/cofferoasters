@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Barlow';
+    src: url('../fonts/text/Barlow-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../fonts/text/Fraunces_9pt-Black.ttf');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

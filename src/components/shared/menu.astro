@@ -1,0 +1,31 @@
+---
+import { Menu } from "../../models/types";
+import menuJson from '../../assets/data/menu.json'
+const menu = menuJson as Menu[]
+---
+
+<nav class="menu">
+  <ul>
+    {
+      menu.map(item => (
+        <li>
+          <a href={item.url}>{item.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .menu a {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+  }
+  
+  @media (min-width: 480px) {
+    .menu ul {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+</style>

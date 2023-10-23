@@ -1,0 +1,30 @@
+{
+  "id": "7ea88ea9-faa4-45d5-ac75-904372e46a28",
+  "name": "Home Section UI",
+  "section": [
+    {
+      "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a5",
+      "name": "How it works",
+      "items": [
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a2",
+          "title": "Pick your coffee",
+          "description": "Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.",
+          "image": null
+        },
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a7",
+          "title": "Choose the frequency",
+          "description": "Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.",
+          "image": null
+        },
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a0",
+          "title": "Receive and enjoy!",
+          "description": "We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.",
+          "image": null
+        }
+      ]
+    }
+  ]
+}

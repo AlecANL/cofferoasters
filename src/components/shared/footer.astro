@@ -1,0 +1,59 @@
+---
+import Menu from "./menu.astro";
+import Logo from "./logo.astro";
+import socialMediaJson from '@assets/data/social-media.json';
+const socialMedia  = socialMediaJson as Array<SocialMedia>;
+import type { SocialMedia } from "../../models/types";
+---
+<footer class="footer">
+  <div class="footer-header">
+    <Logo/>
+    <Menu/>
+  </div>
+  <ul class="footer-social">
+    {
+      socialMedia.map(item => (
+        <li>
+          <a href={item.url}>
+            <span class:list={[item.icon]}></span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
+
+<style>
+  .footer-header {
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  .footer {
+    background-color: var(--dark-grey-blue);
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 54px;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 85px;
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 24px;
+  }
+</style>
