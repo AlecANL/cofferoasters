@@ -1,0 +1,41 @@
+---
+import type { Item } from "../../models/index.interface";
+interface Props {
+    idx: number;
+    item: Item;
+}
+
+const { idx, item }: Props = Astro.props;
+const parseId = (idx + 1).toString().padStart(2, "0");
+---
+
+<div>
+    <span> {parseId} </span>
+    <h3> {item.title} </h3>
+    <p> {item.description} </p>
+</div>
+
+<style>
+  div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  span {
+    font-size: 72px;
+    font-family: var(--frauncesFont);
+    color: var(--pale-orange);
+  }
+  
+  h3 {
+    font-size: 32px;
+    flex: 1;
+  }
+  
+  @media (min-width: 480px) {
+    div {
+      text-align: start;
+    }
+  }
+</style>

@@ -1,53 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import homeUiJson from '@assets/data/home-ui.json';
+import { HOME_SECTIONS, SectionUI } from "../models/index.interface";
+import HowItWorksSection from "../components/home/howItWorksSection.astro";
+const homeUi = homeUiJson as SectionUI;
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<p>Hello world</p>
-		<h1>Hello world</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum est fugiat in incidunt laborum libero nemo numquam obcaecati perferendis, quibusdam quidem quos ratione repellat totam velit? Accusamus est fuga neque!
-		</p>
+		{
+			homeUi.section.map(section => (
+				<>
+					{
+						section.place === HOME_SECTIONS.HOW_IT_WORKS ? <HowItWorksSection section={section}/> : null
+					}
+				</>
+			))
+		}
 	</main>
 </Layout>
 
