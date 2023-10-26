@@ -1,0 +1,30 @@
+---
+import type { Item } from "../../models/index.interface";
+interface Props {
+    item: Item;
+}
+
+const { item }: Props = Astro.props;
+---
+
+<div>
+    <img src={item.image} alt={item.title} />
+    <h3>{item.title}</h3>
+    <p>{item.description}</p>
+</div>
+
+<style>
+  div {
+    max-inline-size: 280px;
+    text-align: center;
+  }
+  
+  h3 {
+    margin-block: 1.5rem 1rem;
+  }
+  
+  img {
+    max-width: 100%;
+    width: 250px;
+  }
+</style>

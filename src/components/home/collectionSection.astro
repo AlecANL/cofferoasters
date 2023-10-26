@@ -1,0 +1,35 @@
+
+
+---
+import {Section} from "../../models/index.interface";
+import CollectionCard from "./collectionCard.astro";
+interface Props {
+    section: Section
+}
+
+const { section } = Astro.props
+---
+
+<section>
+  <h2>{ section.name }</h2>
+  <div>
+    {
+      section.items.map(item => (
+        <CollectionCard item={item} />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    margin-block: 120px;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+      align-items: center;
+    gap: 48px;
+  }
+</style>

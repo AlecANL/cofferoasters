@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import homeUiJson from '@assets/data/home-ui.json';
 import { HOME_SECTIONS, SectionUI } from "../models/index.interface";
 import HowItWorksSection from "../components/home/howItWorksSection.astro";
+import FeaturesSection from "../components/home/featuresSection.astro";
+import CollectionSection from "../components/home/collectionSection.astro";
 const homeUi = homeUiJson as SectionUI;
 ---
 
@@ -11,6 +13,12 @@ const homeUi = homeUiJson as SectionUI;
 		{
 			homeUi.section.map(section => (
 				<>
+					{
+						section.place === HOME_SECTIONS.COLLECTIONS ? <CollectionSection	section={section}/> : null
+					}
+					{
+						section.place === HOME_SECTIONS.FEATURES ? <FeaturesSection	section={section}/> : null
+					}
 					{
 						section.place === HOME_SECTIONS.HOW_IT_WORKS ? <HowItWorksSection section={section}/> : null
 					}

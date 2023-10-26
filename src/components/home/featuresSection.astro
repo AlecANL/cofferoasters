@@ -1,0 +1,88 @@
+---
+import type {Section} from "../../models/index.interface";
+import HowItWorksCard from "./howItWorksCard.astro";
+import FeaturesCard from "./featuresCard.astro";
+interface Props {
+  section: Section
+}
+
+const { section } = Astro.props
+---
+
+<section>
+  <div class="description-section">
+    <div class="section-info">
+      <h2> { section.name } </h2>
+      <p> { section.description} </p>
+    </div>
+  </div>
+  <div class="features-card">
+    {
+      section.items.map((item) => (
+              <FeaturesCard item={item} />
+      ))
+    }
+  </div>
+
+</section>
+
+<style>
+  
+  section {
+    @media (min-width: 1024px) {
+      margin-block: 4rem 130px;
+    }
+  }
+  
+  p {
+    color: hsla(60, 2%, 82%, 1.00);
+  }
+  .features-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(250px, 279px));
+      place-content: center;
+    }
+  }
+  
+  .description-section {
+    max-height: 900px;
+    height: 900px;
+    border-radius: 10px;
+    padding: 64px 1.5rem 0 1.5rem;
+    margin-bottom: -600px;
+    background-color: var(--dark-grey-blue);
+    color: var(--ligth-cream);
+
+    @media (min-width: 680px) {
+      max-height: 570px;
+      height: 570px;
+      margin-bottom: -300px;
+    }
+    
+    @media (min-width: 1024px) {
+      max-height: 500px;
+      height: 500px;
+      margin-bottom: -200px;
+    }
+  }
+  
+  .section-info {
+    text-align: center;
+    
+    @media (min-width: 680px) {
+      max-width: 540px;
+      margin-inline: auto;
+    }
+  }
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.75rem, 0.1875rem + 5vw, 2.2rem);
+  }
+</style>

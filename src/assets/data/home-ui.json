@@ -1,7 +1,66 @@
 {
   "id": "7ea88ea9-faa4-45d5-ac75-904372e46a28",
   "name": "Home Section UI",
+  "description": "",
   "section": [
+    {
+      "id": "6f73fc4b-0454-4c91-a275-ff6ace41c2a5",
+      "name": "our collection",
+      "description": "",
+      "place": 0,
+      "items": [
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a2",
+          "title": "Gran Espresso",
+          "description": "Light and flavorful blend with cocoa and black pepper for an intense experience",
+          "image": "/images/home/coffee-gran-espresso.webp"
+        },
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a7",
+          "title": "Planalto",
+          "description": "Brazilian dark roast with rich and velvety body, and hints of fruits and nuts",
+          "image": "images/home/coffee-planalto.webp"
+        },
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a0",
+          "title": "Piccollo",
+          "description": "Mild and smooth blend featuring notes of toasted almond and dried cherry ",
+          "image": "/images/home/coffee-piccollo.webp"
+        },
+        {
+          "id": "1f73fc4b-0454-4d93-a275-ff6ade41c2a0",
+          "title": "Danche",
+          "description": "Ethiopian hand-harvested blend densely packed with vibrant fruit notes",
+          "image": "/images/home/coffee-danche.webp"
+        }
+      ]
+    },
+    {
+      "id": "6f73fc4b-0454-4c91-a275-ff6ade41c2a5",
+      "name": "Why choose us?",
+      "description": "A large part of our role is choosing which particular coffees will be featured  in our range. This means working closely with the best coffee growers to give you a more impactful experience on every level.",
+      "place": 1,
+      "items": [
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a2",
+          "title": "Best quality",
+          "description": "Discover an endless variety of the world’s best artisan coffee from each of our roasters.",
+          "image": "icon-coffee-bean"
+        },
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a7",
+          "title": "Exclusive benefits",
+          "description": "Special offers and swag when you subscribe, including 30% off your first shipment.",
+          "image": "icon-gift"
+        },
+        {
+          "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a0",
+          "title": "Free shipping",
+          "description": "We cover the cost and coffee is delivered fast. Peak freshness: guaranteed.",
+          "image": "icon-truck"
+        }
+      ]
+    },
     {
       "id": "6f73fc4b-0454-4d93-a275-ff6ade41c2a5",
       "name": "How it works",

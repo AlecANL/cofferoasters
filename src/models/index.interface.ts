@@ -15,6 +15,7 @@ export interface Section {
   name:  string;
   place: number;
   items: Item[];
+  description: string;
 }
 
 export interface Item {

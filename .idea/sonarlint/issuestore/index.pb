@@ -33,3 +33,11 @@ X
 (src/components/home/howItWorksCard.astro,3/d/3da85a460e13487424af74d9c61f6e1484423b59
 [
 +src/components/home/howItWorksSection.astro,7/d/7dac317b400d333653f21814acd2bc9e6f39dd82
+Y
+)src/components/home/featuresSection.astro,d/0/d0f07449b4850d9d130ecda3ad3afb5af5111f6a
+V
+&src/components/home/featuresCard.astro,1/e/1e9292fa097349ec28605a390e788220742ce7c4
+X
+(src/components/home/collectionCard.astro,9/b/9b81da680dd767dc14e0c153d746cf5a0b0a3016
+[
++src/components/home/collectionSection.astro,1/e/1ec8b277c093591cc3bfa6769a758daf04de7cd1
