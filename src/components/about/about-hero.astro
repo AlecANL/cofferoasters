@@ -1,0 +1,61 @@
+---
+---
+<section>
+  <div>
+    <h1>About us</h1>
+    <p>Coffeeroasters began its journey of exotic discovery in 1999, highlighting stories of coffee from around the world. We have since been dedicated to bring the perfect cup - from bean to brew - in every shipment.</p>
+  </div>
+</section>
+
+<style>
+  div {
+    max-inline-size: 450px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  section {
+    padding: 90px 1.5rem;
+    background-image: url("/images/about/image-hero-whitecup-mobile.webp");
+    background-size: cover;
+    border-radius: 10px;
+    margin-bottom: 120px;
+    color: var(--ligth-cream);
+    position: relative;
+    
+    &:before {
+      position: absolute;
+      border-radius: 10px;
+      opacity: .3;
+      inset: 0;
+      content: '';
+      inline-size: 100%;
+      background-color:  #000;
+    }
+    
+    @media (min-width: 768px) {
+      background-image: url("/images/about/image-hero-whitecup-tablet.webp");
+      margin-bottom: 144px;
+      padding: 120px 60px;
+    }
+
+    @media (min-width: 768px) {
+      background-image: url("/images/about/image-hero-whitecup-desktop.webp");
+      margin-bottom: 170px;
+      padding: 140px 85px;
+    }
+    
+    p {
+      color: hsla(60, 2%, 82%, 1.00);
+    }
+  }
+  
+  h1 {
+    margin-top: 1.5rem;
+    font-size: clamp(1.75rem, 0.9688rem + 2.5vw, 2.375rem);
+    
+    @media (min-width: 768px) {
+      margin-block: 0 1.5rem;
+    }
+  }
+</style>

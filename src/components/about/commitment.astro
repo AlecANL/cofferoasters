@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string,
+  description:  string,
+}
+
+const { title, description} = Astro.props
+
+---
+<section>
+  <div class="about__image-c"></div>
+  <div class="about__description-c">
+    <h2> { title } </h2>
+    <p> { description } </p>
+  </div>
+</section>
+
+<style>
+  section {
+    max-inline-size: 1110px;
+    margin-inline: auto;
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 70px;
+    }
+  }
+  
+  h2 {
+    margin-block: 48px 30px;
+    font-size: clamp(2rem, 1.5313rem + 1.5vw, 2.375rem);
+    
+    @media (min-width: 1024px) {
+      margin-top: 0;
+    }
+  }
+  
+  p {
+    line-height: 25px;
+  }
+  
+  .about__description-c {
+    text-align: center;
+    
+    @media (min-width: 768px) {
+      text-align: start;
+      max-inline-size: 540px;
+    }
+
+    @media (min-width: 1024px) {
+      align-self: center;
+    }
+  }
+  
+  .about__image-c {
+    background-image: url('/images/about/image-commitment-mobile.webp');
+    background-size: cover;
+    height: 400px;
+    max-inline-size: 340px;
+    inline-size: 100%;
+    border-radius: 8px;
+    margin-inline: auto;
+    
+    @media (min-width: 768px) {
+      background-image: url('/images/about/image-commitment-tablet.webp');
+    }
+    
+    @media (min-width: 1024px) {
+      background-image: url('/images/about/image-commitment-desktop.webp');
+      height: 500px;
+    }
+  }
+</style>

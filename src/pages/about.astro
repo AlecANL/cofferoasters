@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CountriesSection from '@components/about/countries-section.astro'
+import aboutUiJson from '@assets/data/about-ui.json'
+import Commitment from "../components/about/commitment.astro";
+import Quality from "../components/about/quality.astro";
+import AboutHero from "@components/about/about-hero.astro";
+---
+
+<Layout title="about web page">
+  <main>
+    <AboutHero />
+    {
+      aboutUiJson.map(section => (
+        <>
+          {
+            section.position === 1 ?
+              <Quality title={section.title} description={section.description} /> : null
+          }
+          {
+            section.position === 0 ?
+              <Commitment title={section.title} description={section.description} /> : null
+          }
+        </>
+      ))
+    }
+    <CountriesSection />
+  </main>
+</Layout>

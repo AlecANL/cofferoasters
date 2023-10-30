@@ -41,3 +41,11 @@ X
 (src/components/home/collectionCard.astro,9/b/9b81da680dd767dc14e0c153d746cf5a0b0a3016
 [
 +src/components/home/collectionSection.astro,1/e/1ec8b277c093591cc3bfa6769a758daf04de7cd1
+P
+ src/components/shared/link.astro,1/0/10649e7baf256b4697e4f02b60047f5038cbcb55
+R
+"src/components/home/homeHero.astro,0/a/0a4972357767cbca5ce6cee3acf4ccdd6923e8b2
+P
+ src/components/shared/logo.astro,f/9/f9f9bc2fa12534fc5fc6f61911b79689773b4c35
+E
+src/pages/about.astro,f/6/f6c9e465e0fb0ab6d933f5161c166c47c3958ee0

@@ -1,0 +1,88 @@
+---
+interface Props {
+  title: string,
+  description:  string,
+}
+
+const { title, description} = Astro.props
+
+---
+<section>
+    <div class="about-commitment__image"></div>
+    <div class="commitment__description">
+        <h2> { title } </h2>
+        <p> { description } </p>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        background-color: var(--dark-grey-blue);
+        color: var(--ligth-cream);
+        border-radius: 10px;
+        padding: 1.5rem 1.5rem 60px 1.5rem;
+        margin-top: 200px;
+
+        @media (min-width: 1024px) {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+
+    p {
+        color: hsla(60, 2%, 82%, 1.00);
+        margin-top: 1rem;
+        line-height: 25px;
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 0.9688rem + 2.5vw, 2.375rem);
+    }
+
+    .commitment__description {
+        max-inline-size: 279px;
+        margin-top: 30px;
+        margin-inline: auto;
+        text-align: center;
+
+        @media (min-width: 680px) {
+            max-inline-size: 540px;
+            margin-top: -40px;
+        }
+
+        @media (min-width: 768px) {
+            margin-top: 0;
+        }
+
+        @media (min-width: 1024px) {
+            text-align: start;
+            margin-top: 88px;
+        }
+    }
+
+    .about-commitment__image {
+        position: relative;
+        max-inline-size: 100%;
+        top: -70px;
+        inline-size: 100%;
+        min-block-size: 156px;
+        background-size: cover;
+        border-radius: 10px;
+        background-image: url("/images/about/image-quality-mobile.webp");
+
+        @media (min-width: 768px) {
+            top: -120px;
+            min-block-size: 300px;
+            max-inline-size: 540px;
+            margin-inline: auto;
+            background-image: url("/images/about/image-quality-tablet.webp");
+        }
+
+        @media (min-width: 1024px) {
+            max-inline-size: 445px;
+            min-block-size: 474px;
+            background-image: url("/images/about/image-quality-desktop.webp");
+        }
+    }
+</style>

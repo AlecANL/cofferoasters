@@ -7,7 +7,7 @@ import type { SocialMedia } from "../../models/types";
 ---
 <footer class="footer">
   <div class="footer-header">
-    <Logo/>
+    <Logo variant="white"/>
     <Menu/>
   </div>
   <ul class="footer-social">
@@ -29,6 +29,7 @@ import type { SocialMedia } from "../../models/types";
 
     @media (min-width: 1024px) {
       flex-direction: row;
+      gap: 102px;
     }
   }
 
@@ -54,6 +55,12 @@ import type { SocialMedia } from "../../models/types";
 
   .footer-social {
     display: flex;
+    align-items: center;
     gap: 24px;
+  }
+  
+  .footer-social a {
+    color: var(--ligth-cream);
+    font-size: 1.5rem;
   }
 </style>

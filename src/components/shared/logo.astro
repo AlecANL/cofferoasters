@@ -1,14 +1,30 @@
 ---
+interface Props {
+    variant?: 'default' | 'white';
+}
+
+const { variant = 'default' } = Astro.props;
 ---
 
 <div>
-    <a href="/public">
-        <img src="/src/assets/logos/logo.svg" alt="Logo" class="logo">
-    </a>
+  <a href="/">
+    {
+      variant === 'white' ? (
+          <img src="/src/assets/logos/logo-white.svg" alt="Logo" class="logo">
+        )
+        : null
+    }
+    {
+      variant === 'default' ? (
+          <img src="/src/assets/logos/logo.svg" alt="Logo" class="logo">
+        )
+        : null
+    }
+  </a>
 </div>
 
 <style>
   img {
-    max-width: 163px;
+      max-width: 163px;
   }
 </style>

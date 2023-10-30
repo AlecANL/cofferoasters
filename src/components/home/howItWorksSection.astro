@@ -1,6 +1,7 @@
 ---
 import type {Section} from "../../models/index.interface";
 import HowItWorksCard from "./howItWorksCard.astro";
+import Link from "../shared/link.astro";
 interface Props {
   section: Section
 }
@@ -23,7 +24,9 @@ const { section } = Astro.props
       ))
     }
   </div>
-  <button>Create your plan</button>
+  <Link variant="primary" href="/plan">
+      Create your plan
+  </Link>
 </section>
 
 <style>
@@ -41,12 +44,21 @@ const { section } = Astro.props
   section {
     max-inline-size: 1045px;
     margin: 4rem auto;
+    
+    @media (min-width: 680px) {
+      margin-bottom: 144px;
+    }
+    
+    @media (min-width: 1024px) {
+      margin-bottom: 210px;
+    }
   }
   
 .items {
   display: flex;
   flex-direction: column;
   gap: 56px;
+  margin-bottom: 64px;
   
   @media (min-width: 680px) {
     margin-top: 67px;

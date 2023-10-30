@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string
+  variant?: 'primary' | 'secondary' | 'default'
+}
+
+const { href, variant = 'default' } = Astro.props
+---
+
+<a href={href} class:list={[`variant-${variant}`]}>
+  <slot></slot>
+</a>
+
+<style>
+  .variant-primary {
+    background-color: var(--dark-cyan);
+    color: var(--ligth-cream);
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-family: var(--frauncesFont);
+    font-size: 18px;
+    
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import Link from "../shared/link.astro";
+---
+
+<section>
+  <div class="hero__content">
+    <h1>Great coffee made simple.</h1>
+    <p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
+    <Link variant="primary" href="/plan">create your plan</Link>
+  </div>
+</section>
+
+<style>
+  section {
+    color: var(--ligth-cream);
+    background-size: cover;
+    background-image: url("/images/home/home-hero-coffeepress-mobile.webp");
+    border-radius: 10px;
+    
+    @media (min-width: 680px) {
+      background-image: url("/images/home/home-hero-coffeepress-tablet.webp");
+    }
+    
+    @media (min-width: 1024px) {
+      background-image: url("/images/home/home-hero-coffeepress-desktop.webp");
+    }
+  }
+  
+  .hero__content {
+    padding: 100px 1.5rem;
+    text-align: center;
+    max-width: 400px;
+    
+    @media (min-width: 680px) {
+      max-width: 680px;
+      padding: 118px 85px;
+      text-align: start;
+    }
+    
+    @media (min-width: 1024px) {
+      max-width: 750px;
+    }
+  }
+  
+  h1 {
+    font-size: clamp(2.5rem, 0.5469rem + 6.25vw, 4.0625rem);
+  }
+  
+  p {
+    margin-block: 1.5rem 54px;
+    color: hsla(60, 2%, 82%, 1.00);
+  }
+
+</style>

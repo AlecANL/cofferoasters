@@ -5,11 +5,13 @@ import { HOME_SECTIONS, SectionUI } from "../models/index.interface";
 import HowItWorksSection from "../components/home/howItWorksSection.astro";
 import FeaturesSection from "../components/home/featuresSection.astro";
 import CollectionSection from "../components/home/collectionSection.astro";
+import HomeHero from "../components/home/homeHero.astro";
 const homeUi = homeUiJson as SectionUI;
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
+		<HomeHero/>
 		{
 			homeUi.section.map(section => (
 				<>
