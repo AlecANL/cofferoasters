@@ -1,0 +1,98 @@
+---
+import HowItWorksCard from "../home/howItWorksCard.astro";
+import {Section} from "../../models/index.interface";
+
+interface Props {
+    section: Section;
+    variant: 'default' | 'alternative'
+}
+
+const { section, variant = 'default' } = Astro.props;
+---
+
+<div class:list={['rule', `variant-${variant}`]}>
+    <div class="rule__line"></div>
+    <div class="rule__line-circle c1"></div>
+    <div class="rule__line-circle c2"></div>
+    <div class="rule__line-circle c3"></div>
+</div>
+<div class="items">
+    {
+        section.items.map((item, idx) => (
+          <HowItWorksCard variant={variant} item={item} idx={idx} />
+        ))
+    }
+</div>
+<style>
+  .items {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-bottom: 64px;
+    
+    @media (min-width: 680px) {
+      margin-top: 67px;
+      flex-direction: row;
+      gap: 32px;
+    }
+    
+    @media (min-width: 768px) {
+      gap: 95px;
+    }
+  }
+  
+  .rule {
+    position: relative;
+    display: none;
+    
+    .rule__line {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      inline-size: 100%;
+      block-size: 1px;
+      background-color: var(--pale-orange);
+    }
+    
+    .rule__line-circle {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      inline-size: 31px;
+      block-size: 31px;
+      border-radius: 50%;
+      
+    }
+    
+    .rule__line-circle.c1{
+      left: -3px;
+    }
+    
+    .rule__line-circle.c2 {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .rule__line-circle.c3 {
+      right: -15px;
+    }
+    
+    @media (min-width: 680px) {
+      display: block;
+      max-width: 75%;
+      inline-size: 100%;
+      height: 50px;
+    }
+  }
+
+  .variant-default .rule__line-circle {
+    border: 2px solid var(--dark-cyan);
+    background-color: #fff;
+  }
+  
+  .variant-alternative .rule__line-circle {
+      border: 2px solid var(--dark-cyan);
+  }
+</style>

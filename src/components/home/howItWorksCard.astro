@@ -1,18 +1,19 @@
 ---
 import type { Item } from "../../models/index.interface";
 interface Props {
-    idx: number;
-    item: Item;
+  idx: number;
+  item: Item;
+  variant?: string;
 }
 
-const { idx, item }: Props = Astro.props;
+const { idx, item, variant }: Props = Astro.props;
 const parseId = (idx + 1).toString().padStart(2, "0");
 ---
 
-<div>
+<div class:list={[`variant-${variant}`]}>
     <span> {parseId} </span>
-    <h3> {item.title} </h3>
-    <p> {item.description} </p>
+    <h3 class="wizard__Card-title"> {item.title} </h3>
+    <p class="wizard__Card-txt"> {item.description} </p>
 </div>
 
 <style>
@@ -28,6 +29,10 @@ const parseId = (idx + 1).toString().padStart(2, "0");
     color: var(--pale-orange);
   }
   
+  p {
+    margin-top: 1.5rem;
+  }
+  
   h3 {
     font-size: 32px;
     flex: 1;
@@ -36,6 +41,12 @@ const parseId = (idx + 1).toString().padStart(2, "0");
   @media (min-width: 480px) {
     div {
       text-align: start;
+    }
+  }
+  
+  .variant-alternative {
+    .wizard__Card-title, .wizard__Card-txt {
+      color: var(--ligth-cream);
     }
   }
 </style>

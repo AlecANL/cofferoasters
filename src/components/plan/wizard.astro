@@ -1,0 +1,32 @@
+---
+import PlanWizard from "../shared/plan-wizard.astro";
+import homeUiJson from '@assets/data/home-ui.json'
+import { HOME_SECTIONS, SectionUI } from "../../models/index.interface";
+const homeUi = homeUiJson as SectionUI
+const section = homeUi?.section.find((section) => section.place === HOME_SECTIONS.HOW_IT_WORKS)
+---
+
+<section class="plan-wizard">
+  <PlanWizard variant="alternative" section={section} />
+</section>
+
+<style>
+  .plan-wizard {
+    background-color: var(--dark-grey-blue);
+    margin-inline: -1.5rem;
+    padding: 80px 1.5rem;
+    border-radius: 10px;
+    margin-block: 120px;
+
+    @media (min-width: 768px) {
+      padding-inline: 40px;
+    }
+
+    @media (min-width: 1024px) {
+      padding-inline: 85px 150px;
+      margin-inline: 0;
+    }
+  }
+  
+
+</style>

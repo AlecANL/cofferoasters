@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wizard from "../components/plan/wizard.astro";
+import PlanHero from "../components/plan/plan-hero.astro";
+---
+
+<Layout title="plan web page">
+  <main>
+    <PlanHero/>
+    <Wizard />
+    <form>
+      <details open>
+        <summary>System Requirements</summary>
+        <div>
+          <div class="form-control">
+            <label for="first">
+              <span>Capsule</span>
+              <span>Compatible with Nespresso systems and similar brewers</span>
+            </label>
+            <input name="first" id="first" type="radio"/>
+          </div>
+          <div class="form-control">
+            <label for="second">
+                <span>Capsule</span>
+                <span>Compatible with Nespresso systems and similar brewers</span>
+            </label>
+            <input name="first" id="second" type="radio"/>
+          </div>
+          <div class="form-control">
+            <label for="third">
+                <span>Capsule</span>
+                <span>Compatible with Nespresso systems and similar brewers</span>
+            </label>
+            <input name="first" id="third" type="radio"/>
+          </div>
+        </div>
+      </details>
+    </form>
+  </main>
+</Layout>
+
+<style>
+
+</style>
