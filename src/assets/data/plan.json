@@ -1,94 +1,144 @@
 {
-  "id": "",
+  "id": "727d93bb-2699-4c2c-822a-db32c8dd064f",
   "name": "",
   "items": [
     {
-      "id": "",
+      "id": "c57aa5bb-ebbd-4438-ac5b-99fd1d6135cc",
       "title": "How do you drink your coffee?",
+      "group": "drink",
       "items": [
         {
           "name": "Capsule",
-          "description": "Compatible with Nespresso systems and similar brewers"
+          "id": ":ab",
+          "description": "Compatible with Nespresso systems and similar brewers",
+          "group": "first",
+          "value": "capsule"
         },
         {
           "name": "Filter",
-          "description": "For pour over or drip methods like Aeropress, Chemex, and V60"
+          "id": ":ac",
+          "value": "filter",
+          "description": "For pour over or drip methods like Aeropress, Chemex, and V60",
+          "group": "first"
         },
         {
           "name": "Espresso",
-          "description": "Dense and finely ground beans for an intense, flavorful experience"
+          "id": ":ad",
+          "value": "espresso",
+          "description": "Dense and finely ground beans for an intense, flavorful experience",
+          "group": "first"
         }
       ]
     },
     {
-      "id": "",
+      "id": "a5954d80-ee98-4b5d-a2a8-2368ce4ac498",
       "title": "What type of coffee?",
+      "group": "type",
       "items": [
         {
           "name": "Single Origin",
-          "description": "Distinct, high quality coffee from a specific family-owned farm"
+          "id": ":ba",
+          "value": "single-origin",
+          "description": "Distinct, high quality coffee from a specific family-owned farm",
+          "group": "second"
         },
         {
           "name": "Decaf",
-          "description": "Just like regular coffee, except the caffeine has been removed"
+          "id": ":bb",
+          "value": "decaf",
+          "description": "Just like regular coffee, except the caffeine has been removed",
+          "group": "second"
         },
         {
           "name": "Blended",
-          "description": "Combination of two or three dark roasted beans of organic coffees"
+          "id": ":bc",
+          "value": "blended",
+          "description": "Combination of two or three dark roasted beans of organic coffees",
+          "group": "second"
         }
       ]
     },
     {
-      "id": "",
+      "id": "830f3cf5-8a71-4034-a003-443fc808862b",
       "title": "How much would you like?",
+      "group": "amount",
       "items": [
         {
           "name": "250g",
-          "description": "Perfect for the solo drinker. Yields about 12 delicious cups."
+          "id": ":ca",
+          "value": "250",
+          "description": "Perfect for the solo drinker. Yields about 12 delicious cups.",
+          "group": "third"
         },
         {
           "name": "500g",
-          "description": "Perfect option for a couple. Yields about 40 delectable cups."
+          "id": ":cb",
+          "value": "500",
+          "description": "Perfect option for a couple. Yields about 40 delectable cups.",
+          "group": "third"
         },
         {
           "name": "1000g",
-          "description": "Perfect for offices and events. Yields about 90 delightful cups."
+          "id": ":cc",
+          "value": "1000",
+          "description": "Perfect for offices and events. Yields about 90 delightful cups.",
+          "group": "third"
         }
       ]
     },
     {
-      "id": "",
+      "id": "b5eae19f-1f8f-4e20-8220-22e6461f7151",
       "title": "Want us to grind them?",
+      "group": "grind",
       "items": [
         {
           "name": "Wholebean",
-          "description": "Best choice if you cherish the full sensory experience"
+          "id": ":da",
+          "value": "wholebean",
+          "description": "Best choice if you cherish the full sensory experience",
+          "group": "four"
         },
         {
           "name": "Filter",
-          "description": "For drip or pour-over coffee methods such as V60 or Aeropress"
+          "id": ":db",
+          "value": "filter",
+          "description": "For drip or pour-over coffee methods such as V60 or Aeropress",
+          "group": "four"
         },
         {
           "name": "Cafetiére",
-          "description": "Course ground beans specially suited for french press coffee"
+          "id": ":dd",
+          "value": "cafetiere",
+          "description": "Course ground beans specially suited for french press coffee",
+          "group": "four"
         }
       ]
     },
     {
-      "id": "",
+      "id": "15ce75df-773e-4d6e-978f-ba37cca1dd57",
       "title": "How often should we deliver?",
+      "group": "frequency",
       "items": [
         {
           "name": "Every week",
-          "description": "$7.20 per shipment. Includes free first-class shipping."
+          "id": ":ea",
+          "value": "every-week",
+          "description": "$7.20 per shipment. Includes free first-class shipping.",
+          "group": "five"
         },
         {
           "name": "Every 2 weeks",
-          "description": "$9.60 per shipment. Includes free priority shipping."
+          "id": ":eb",
+          "value": "every-2-weeks",
+          "description": "$9.60 per shipment. Includes free priority shipping.",
+          "group": "five"
         },
         {
           "name": "Every month",
-          "description": "$12.00 per shipment. Includes free priority shipping."
+          "id": ":ec",
+          "value": "every-month",
+          "description": "$12.00 per shipment. Includes free priority shipping.",
+          "group": "five"
         }
       ]
     }
