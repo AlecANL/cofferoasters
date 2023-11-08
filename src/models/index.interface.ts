@@ -7,7 +7,7 @@ export const HOME_SECTIONS = {
 export interface SectionUI {
   id:      string;
   name:    string;
-  section: Section[];
+  section: Array<Section>;
 }
 
 export interface Section {

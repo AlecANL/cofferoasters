@@ -1,0 +1,23 @@
+---
+import { Collapse } from "../../models/collapse.interface";
+import planJson from '@assets/data/plan.json';
+const plan = planJson as Collapse
+import CollapseCollection from '@components/plan/collapse.astro'
+---
+<form id="form">
+  {
+    plan.items.map(item => (
+      <CollapseCollection item={item} />
+    ))
+  }
+</form>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 88px;
+    max-inline-size: 730px;
+    inline-size: 100%;
+  }
+</style>

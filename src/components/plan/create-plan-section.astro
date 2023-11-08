@@ -1,0 +1,31 @@
+---
+import Order from "./order.astro";
+import CollapseOptions from "./collapse-options.astro";
+import PlanForm from "./plan-form.astro";
+---
+<section class="collapse-section">
+  <div class="content-collapse">
+    <CollapseOptions />
+    <PlanForm />
+  </div>
+  <Order />
+  <button class="btn primary" id="btn">Create my plan!</button>
+</section>
+
+<style>
+  .collapse-section {
+    margin-bottom: 86px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-collapse {
+    @media (min-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+      inline-size: 100%;
+    }
+  }
+
+
+</style>

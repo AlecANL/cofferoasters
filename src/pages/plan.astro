@@ -1,458 +1,62 @@
 ---
-import type { Collapse } from "../models/collapse.interface";
 import Layout from "../layouts/Layout.astro";
 import Wizard from "../components/plan/wizard.astro";
 import PlanHero from "../components/plan/plan-hero.astro";
-import planJson from '@assets/data/plan.json';
-const plan = planJson as Collapse
+import CratePlanSection from '@components/plan/create-plan-section.astro';
+import ModalOrder from '@components/plan/order-modal.astro';
 ---
 
 <Layout title="plan web page">
   <main>
     <PlanHero/>
     <Wizard />
-    <section class="collapse-section">
-      <div class="content-collapse">
-        <ul>
-          <li>
-            <a>Preferences</a>
-          </li>
-          <li>
-            <a>Bean Type</a>
-          </li>
-          <li>
-            <a>Quantity</a>
-          </li>
-          <li>
-            <a>Grind Option</a>
-          </li>
-          <li>
-            <a>Deliveries</a>
-          </li>
-        </ul>
-        <form id="form">
-            {
-              plan.items.map(item => (
-                <div class="form-group">
-                  <details id={item.group}>
-                    <summary> { item.title } </summary>
-                    <div class="collapse-group">
-                      {
-                        item.items.map(collapse => (
-                          <div class="collapse__card-content">
-                            <input type="radio" name={collapse.group} value={collapse.value} id={collapse.id} />
-                            <div class="collapse-card">
-                              <label for={collapse.id}>
-                                <span class="collapse__item-name"> { collapse.name } </span>
-                                <span class="collapse__item-description"> { collapse.description } </span>
-                              </label>
-                            </div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                  </details>
-                </div>
-              ))
-            }
-        </form>
-      </div>
-      <div class="order">
-        <span class="order-title">order summary</span>
-        <p>
-          “<span class="first-txt txt">I drink my coffee as</span>
-           <span id="g-first">________</span>
-           <span class="second-txt txt">, with a </span>
-           <span id="g-second">________</span>
-           <span class="third-txt txt"> type of bean. </span>
-           <span id="g-third">________</span>
-           <span class="four-txt txt"> ground ala </span>
-           <span id="g-four">________</span>
-           <span class="five-txt txt"> , sent to me </span>
-           <span id="g-five">________</span>.”
-        </p>
-      </div>
-      <button class="btn primary" id="btn">Create my plan!</button>
-    </section>
+    <CratePlanSection />
   </main>
+  <ModalOrder />
 </Layout>
-
 <style>
-    
-    summary {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    details>summary {
-      list-style-type: none;
-    }
-
-    details>summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details>summary::before {
-        display: none;
-    }
-
-    details[open]>summary::before {
-        display: none;
-    }
-
-    details>summary::after {
-        content: url("/images/icons/arrow-down.svg");
-    }
-
-    details[open]>summary::after {
-        content: url("/images/icons/arro-up.svg");
-    }
-
-
-    details[disabled] {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-  
-  .content-collapse {
-    @media (min-width: 1024px) {
-      display: flex;
-      justify-content: space-between;
-      inline-size: 100%;
-    }
-  }
-  
-  ul {
-    display: none;
-
-    @media (min-width: 1024px) {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-  }
-  
-  
-  .collapse-section {
-    margin-bottom: 86px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 88px;
-    max-inline-size: 730px;
-    inline-size: 100%;
-  }
-  
-  details {
-    color: #333D4B;
-  }
-  
-  summary {
-    color: #83888F;
-    font-family: var(--frauncesFont);
-    font-size: clamp(1.5rem, 0.9531rem + 1.75vw, 1.9375rem);
-    cursor: default;
-  }
-  
-  .collapse-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
-    margin-top: 2rem;
-    
-    @media (min-width: 480px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (min-width: 780px) {
-      margin-top: 40px;
-    }
-
-    @media (min-width: 1024px) {
-      margin-top: 56px;
-    }
-  }
-  
-  .collapse__card-content {
-    position: relative;
-  }
-  
-  .collapse-card {
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--collpase-bg-card);
-    
-    &:hover {
-      background-color: var(--pale-orange);
-    }
-  }
-  
-  .collapse-card label {
-    padding: 2rem 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .collapse__card-content input {
-    position: absolute;
-    min-inline-size: 0;
-    min-block-size: 0;
-    visibility: hidden;
-    
-    &:checked + .collapse-card {
-      background-color: var(--dark-cyan);
-      color: var(--ligth-cream);
-    }
-  }
-  
-  .collapse__item-name {
-    font-family: var(--frauncesFont);
-    font-size: 24px;
-    line-height: 32px;
-  }
-  
-  .collapse__item-description {
-    font-family: var(--barlowFont);
-    line-height: 26px;
-  }
-  
-  .order {
-    background-color: var(--dark-grey-blue);
-    color: var(--ligth-cream);
-    padding: 2rem 1.5rem;
-    border-radius: 10px;
-    max-inline-size: 730px;
-    margin-block: 84px 40px;
-
-    @media (min-width: 780px) {
-      padding-inline: 44px;
-    }
-
-    @media (min-width: 1024px) {
-      padding-inline: 64px;
-      align-self: flex-end;
-    }
-  }
-  
-  .order-title {
-    line-height: 26px;
-    text-transform: uppercase;
-    opacity: 0.5037;
-  }
-  
-  .order p {
-    font-family: var(--frauncesFont);
-    font-size: 24px;
-    line-height: 40px;
-    margin-block-start: 8px;
-  }
-  
-  .four-txt, #g-four {
-    display: none;
-  }
-  
-  .order p span:not(.txt) {
-    color: var(--dark-cyan);
-    display: inline-block;
-    min-inline-size: 100px;
-    text-align: center;
-    margin-inline: .5rem;
-  }
-  
-  .btn {
-    max-inline-size: 220px;
-    padding: 1rem 35px;
-    border-radius: 10px;
-    border-color: transparent;
-    align-self: flex-end;
-    font-size: 18px;
-  }
-  
-  .btn.primary {
-    background-color: var(--dark-cyan);
-    color: var(--ligth-cream);
-    transition: transform .2s ease-in-out;
-    
-    &:active {
-      transform: scale(0.95);
-    }
-    
-    &:hover {
-      background-color: var(--primary-button-hover);
-      color: var(--primary-button-color-hover);
-    }
-  }
-  
-  
 
 </style>
-
 <script>
-  const $ = (selector: string) => document.querySelector(selector) as HTMLElement;
-  const $$ = (selector: string) => document.querySelectorAll(selector);
+  import { Plan } from "../core/app";
+  import { $, $$ } from "../utils/utils";
+  const plan = new Plan();
   
-  const $form = $('#form');
   const $radioInputs = $$('input[type="radio"]');
-  const $gFirst = $('#g-first');
-  const $gSecond = $('#g-second');
-  const $gThird = $('#g-third');
-  const $gFour = $('#g-four');
-  const $gFive = $('#g-five');
   const $button = $('#btn');
-  
-  const $firstTxt = $('.first-txt');
-  const $secondTxt = $('.second-txt');
-  const $thirdTxt = $('.third-txt');
-  const $fourTxt = $('.four-txt');
-  const $fiveTxt = $('.five-txt');
-  
-  
-  
+  const $btnCheckout = $('#checkout');
   const $grindDetailCollapse = $('#grind') as HTMLDetailsElement;
-  const $frequencyDetailCollapse = $('#frequency') as HTMLDetailsElement;
-  const $deliveryFrequency = $frequencyDetailCollapse.querySelectorAll<HTMLElement>('.collapse__item-description')
+  const $collapseOptionsList = $('.collapse-options-list');
   
-  const values = {
-    first: '',
-    second: '',
-    third: '',
-    four: '',
-    five: '',
-  };
-  
-  const TEXT_FOR_DELIVERY_OPTION = 'per shipment. Includes free first-class shipping.'
-  const COFFEE_PRICE_FOR_DELIVERY = {
-    '250': {
-      'every-week': 7.2,
-      'every-2-weeks': 9.6,
-      'every-month': 12.0,
-    },
-    '500': {
-      'every-week': 13.0,
-      'every-2-weeks': 17.5,
-      'every-month': 22.0,
-    },
-    '1000': {
-      'every-week': 22.0,
-      'every-2-weeks': 32.0,
-      'every-month': 42.0,
-    },
-  }
-  const TEXT_DELIVERY_PARSED = {
-    'every-week': 'Every week',
-    'every-2-weeks': 'Every 2 weeks',
-    'every-month': 'Every month',
-  }
-  const VALUE_TO_CALC_TOTAL_ORDER = {
-    'every-week': 4,
-    'every-2-weeks': 2,
-    'every-month': 1,
-  }
-  
-  $form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData($form);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
-  });
+  $collapseOptionsList.addEventListener('click', (e) => {
+    plan.handleOpenCollapseByOption(e)
+  })
   
   
   $grindDetailCollapse.addEventListener('toggle', (e) => {
-    const target = e.target as HTMLDetailsElement;
-    const { first } = values;
-    
-    if (first !== 'capsule')  return
-    
-    target.open = false;
-    target.removeAttribute('open');
-    target.setAttribute('disabled', 'true');
-    $radioInputs.forEach(($radio: HTMLInputElement) => {
-      const $input = $radio.id.startsWith(':d')
-      if (!$input) return
-      $radio.value = '';
-      $radio.checked = false;
-    })
+    plan.handleBlockGrindCollapseInDisabledState(e)
+  })
+  
+  document.addEventListener('keydown', ({ key }) => {
+    if (key !== 'Escape') return;
+    plan.closeModal()
   })
   
   $radioInputs.forEach(($input) => {
     $input.addEventListener('change', (e) => {
       const target = e.target as HTMLInputElement;
       const { name, value } = target;
-      values[name] = value;
-      setOrderValue(values);
-      
-      if (values.first === 'capsule') {
-        $firstTxt.textContent = 'I drink my coffee using';
-        $fourTxt.style.display = 'none';
-      } else {
-        $firstTxt.textContent = 'I drink my coffee as';
-        $fourTxt.style.display = 'inline-block';
-      }
-      
-      if (name === 'third') {
-        const currentValue = COFFEE_PRICE_FOR_DELIVERY[value];
-        const entries = Object.entries(currentValue);
-        $deliveryFrequency.forEach(($item, index) => {
-          const [_, value] = entries[index];
-          $item.textContent = `${parseAmount(Number(value))} ${TEXT_FOR_DELIVERY_OPTION}`;
-        })
-      }
-      
-      if (values.first !== 'capsule') {
-        $grindDetailCollapse.removeAttribute('disabled');
-      }
-      
-      if (values.first === 'capsule') {
-        $grindDetailCollapse.open = false;
-        $grindDetailCollapse.removeAttribute('open');
-        $grindDetailCollapse.setAttribute('disabled', 'true');
-      }
+      plan.handleSetFormValues(name, value);
     })
   })
   
   $button.addEventListener('click', () => {
-    if (!values.first || !values.second || !values.third || !values.four || !values.five) {
-      return;
-    }
-    
-    const totalOrder = getTotalOrder(values);
-    console.log(values);
-    console.log(totalOrder);
+    plan.showOrderInModal()
   })
   
-  const parseAmount = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    }).format(amount);
-  }
   
-  const getDeliveryFrequency = (value: string) => {
-    return TEXT_DELIVERY_PARSED[value];
-  }
-  
-  const getTotalOrder = (values: any) => {
-    const { third,  five} = values;
-    const amount = COFFEE_PRICE_FOR_DELIVERY[third][five];
-    const total = VALUE_TO_CALC_TOTAL_ORDER[five] * amount;
-    
-    return {
-      totalRaw: total,
-      totalParsed: parseAmount(total),
-    }
-  }
-  
-  const setOrderValue = (values: any) => {
-    const { first, second, third, four, five } = values;
-    $gFirst.textContent = first;
-    $gSecond.textContent = second;
-    $gThird.textContent = third;
-    $gFour.textContent = four;
-    $gFive.textContent = getDeliveryFrequency(five);
-  }
+  $btnCheckout.addEventListener('click', () => {
+    plan.closeModal()
+    plan.resetForm()
+  })
 </script>

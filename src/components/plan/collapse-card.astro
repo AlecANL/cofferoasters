@@ -1,0 +1,65 @@
+---
+import type {CollapseItem} from "../../models/collapse.interface";
+interface Props {
+  collapse: CollapseItem;
+  name: string;
+}
+
+const { collapse, name } = Astro.props
+---
+
+<div class="collapse__card-content">
+  <input type="radio" name={name} value={collapse.value} id={collapse.id} />
+  <div class="collapse-card">
+    <label for={collapse.id}>
+      <span class="collapse__item-name"> { collapse.name } </span>
+      <span class="collapse__item-description"> { collapse.description } </span>
+    </label>
+  </div>
+</div>
+
+<style>
+  .collapse__card-content {
+    position: relative;
+  }
+
+  .collapse-card {
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--collpase-bg-card);
+
+    &:hover {
+      background-color: var(--pale-orange);
+    }
+  }
+
+  .collapse-card label {
+    padding: 2rem 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .collapse__card-content input {
+    position: absolute;
+    min-inline-size: 0;
+    min-block-size: 0;
+    visibility: hidden;
+
+    &:checked + .collapse-card {
+      background-color: var(--dark-cyan);
+      color: var(--ligth-cream);
+    }
+  }
+
+  .collapse__item-name {
+    font-family: var(--frauncesFont);
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .collapse__item-description {
+    font-family: var(--barlowFont);
+    line-height: 26px;
+  }
+</style>

@@ -10,3 +10,12 @@ export interface SocialMedia {
   url: string;
 }
 
+export interface FormValues {
+  drink: string;
+  type: string;
+  amount: string;
+  grind: string;
+  frequency: string;
+}
+
+export type FormValuesName = keyof FormValues;

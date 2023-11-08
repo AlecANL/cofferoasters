@@ -1,0 +1,88 @@
+---
+import CollapseCard from "./collapse-card.astro";
+import type {CollapseCollection} from "../../models/collapse.interface";
+
+interface Props {
+  item: CollapseCollection
+}
+
+const { item } = Astro.props
+---
+<div class="form-group">
+  <details id={item.group}>
+    <summary> { item.title } </summary>
+    <div class="collapse-group">
+      {
+        item.items.map(collapse => (
+          <CollapseCard name={item.group} collapse={collapse} />
+        ))
+      }
+    </div>
+  </details>
+</div>
+
+<style>
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details>summary {
+    list-style-type: none;
+  }
+
+  details>summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details>summary::before {
+    display: none;
+  }
+
+  details[open]>summary::before {
+    display: none;
+  }
+
+  details>summary::after {
+    content: url("/images/icons/arrow-down.svg");
+  }
+
+  details[open]>summary::after {
+    content: url("/images/icons/arro-up.svg");
+  }
+
+  details[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  details {
+    color: #333D4B;
+  }
+
+  summary {
+    color: #83888F;
+    font-family: var(--frauncesFont);
+    font-size: clamp(1.5rem, 0.9531rem + 1.75vw, 1.9375rem);
+    cursor: default;
+  }
+
+  .collapse-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    margin-top: 2rem;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 780px) {
+      margin-top: 40px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-top: 56px;
+    }
+  }
+</style>

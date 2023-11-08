@@ -1,0 +1,69 @@
+<ul class="collapse-options-list">
+  <li class="collapse-option" data-option="drink">
+    <a href="#drink">Preferences</a>
+  </li>
+  <li class="collapse-option" data-option="type">
+    <a href="#type">Bean Type</a>
+  </li>
+  <li class="collapse-option" data-option="amount">
+    <a href="#amount">Quantity</a>
+  </li>
+  <li class="collapse-option" data-option="grind">
+    <a href="#grind">Grind Option</a>
+  </li>
+  <li class="collapse-option" data-option="frequency">
+    <a href="#frequency">Deliveries</a>
+  </li>
+</ul>
+
+<style>
+  ul {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  ul a {
+    font-size: 2rem;
+    font-family: var(--frauncesFont);
+    opacity: .5;
+    counter-increment: options;
+    transition: transform .2s ease-in-out;
+    display: flex;
+    gap: 1.5rem;
+    inline-size: 100%;
+    block-size: 100%;
+    color: #83888F;
+  }
+
+  ul a:before {
+    content: "0" counter(options);
+    font-family: var(--frauncesFont);
+    font-size: 2rem;
+    color: var(--dark-cyan);
+  }
+
+  ul {
+    counter-reset: options;
+    position: sticky;
+    margin-block-start: 0;
+  }
+
+  ul li {
+    padding-block: 1.5rem;
+    border-bottom: 1px solid hsla(180, 1%, 73%, 1.00);
+  }
+
+  ul li:hover a {
+    transform: translateX(10px);
+    color: var(--dark-grey-blue);
+    opacity: 1;
+  }
+
+  ul li:first-child {
+    padding-top: 0;
+  }
+</style>

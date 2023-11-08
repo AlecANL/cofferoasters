@@ -1,0 +1,122 @@
+<dialog class="popup" id="order-modal">
+  <h4>Order Summary</h4>
+  <div class="dialog-content">
+    <div id="order-recipe" class="order-content order-selected order--dialog">
+    </div>
+    <p class="dialog-order-success">Is this correct? You can proceed to checkout or go back to plan selection if something is off. Subscription discount codes can also be redeemed at the checkout. </p>
+    <div class="order-footer">
+      <span class="total raw-total">$0.0</span>
+      <button id="checkout" class="btn primary">
+        <span>Checkout</span>
+        <span class="total btn-total">$0.0</span>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  dialog {
+    padding-top: 0;
+    border: none;
+    border-radius: 8px;
+    max-inline-size: 540px;
+    background-color: var(--bg-body);
+
+    @media (min-width: 768px) {
+        padding-bottom: 0;
+    }
+  }
+
+  .dialog-order-success {
+    font-size: 15px;
+    line-height: 25px;
+    margin-block: 1.5rem;
+  }
+
+  .raw-total {
+    display: none;
+    font-size: 32px;
+    line-height: 36px;
+    font-family: var(--frauncesFont);
+    
+    @media (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+
+  #checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    max-inline-size: 300px;
+    inline-size: 100%;
+    margin: 0 auto;
+
+    .btn-total {
+      display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+      margin: 0;
+      justify-content: center;
+      max-inline-size: 200px;
+
+      .btn-total {
+        display: none;
+      }
+    }
+  }
+
+  .order-footer {
+    .total {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      .total {
+        display: inline-block;
+      }
+    }
+  }
+
+
+  h4 {
+    font-size: clamp(1.75rem, 0.8125rem + 3vw, 2.5rem);
+    padding: 1.5rem 28px;
+    background-color: var(--dark-grey-blue);
+    color: var(--ligth-cream);
+    margin-inline: -1rem;
+  }
+
+  dialog button {
+    max-inline-size: 220px;
+    inline-size: 100%;
+  }
+
+  .dialog-content {
+    margin-inline: -1rem;
+    padding-inline: 1.5rem;
+    margin-block-start: 40px;
+
+    @media (min-width: 768px) {
+      margin-block: 56px;
+      padding-inline: 56px;
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  variant: 'default' | ' dialog'
+}
+
+const { variant = 'default' } = Astro.props
+const className = variant === 'dialog' ? 'order--dialog' : 'order'
+---
+
+<div class={`${className} order-content`}>
+  {
+    variant !== 'dialog' ?
+      <div class="order-title">order summary</div>
+      : null
+  }
+  <p>
+    “<span class="first-txt txt">I drink my coffee as</span>
+    <span id="g-first">________</span>
+    <span class="second-txt txt">, with a </span>
+    <span id="g-second">________</span>
+    <span class="third-txt txt"> type of bean. </span>
+    <span id="g-third">________</span>
+    <span class="four-txt txt"> ground ala </span>
+    <span id="g-four">________</span>
+    <span class="five-txt txt"> , sent to me </span>
+    <span id="g-five">________</span>.”
+  </p>
+</div>
+
+<style>
+  .order {
+    background-color: var(--dark-grey-blue);
+    color: var(--ligth-cream);
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    max-inline-size: 730px;
+    margin-block: 84px 40px;
+
+    @media (min-width: 780px) {
+      padding-inline: 44px;
+    }
+
+    @media (min-width: 1024px) {
+      padding-inline: 64px;
+      align-self: flex-end;
+    }
+  }
+  
+  .order--dialog {
+    color: var(--gray-bold);
+  }
+
+  .order-title {
+    line-height: 26px;
+    text-transform: uppercase;
+    opacity: 0.5037;
+  }
+
+
+</style>
