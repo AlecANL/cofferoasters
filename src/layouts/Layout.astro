@@ -6,9 +6,13 @@ import '@assets/styles/font.css';
 import Footer from "../components/shared/footer.astro";
 interface Props {
 	title: string;
+	description: string;
+	demo: string;
+	screenshot: string;
+	twDemo: string;
 }
 
-const { title } = Astro.props;
+const { title, demo, description, screenshot, twDemo } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,9 +21,27 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/public/favicon/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description}>
+		
+		<!-- Facebook Meta Tags -->
+		<meta property="og:url" content={demo}>
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={description}>
+		<meta property="og:description" content={description}>
+		<meta property="og:image"
+		      content={screenshot}>
+		
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content={twDemo}>
+		<meta property="twitter:url" content={demo}>
+		<meta name="twitter:title" content={description}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image"
+		      content={screenshot}>
 	</head>
 	<body>
 	<div class="body-wrapper">
@@ -49,7 +71,7 @@ const { title } = Astro.props;
 		--just-white: #fff;
 		--text-color: hsla(217, 17%, 25%, 1.00);
 		--gray-bold: hsla(210, 5%, 49%, 1.00);
-		--max-width: 1280px;
+		--max-width: 1400px;
 		--body-padding: 1.5rem;
 		--menu-item-color: #83888F;
 		--primary-button-hover: #66D2CF;
@@ -162,6 +184,12 @@ const { title } = Astro.props;
 	
 	.header {
 		padding-block: 1.5rem;
+		position: sticky;
+		top: 0;
+		z-index: 16;
+		margin-inline: -1.5rem;
+		padding-inline: 1.5rem;
+		background-color: var(--ligth-cream);
 		
 		@media (min-width: 480px) {
 			justify-content: space-between;
@@ -197,7 +225,7 @@ const { title } = Astro.props;
 		display: block;
 		inline-size: 100%;
 		block-size: 2px;
-		background: blue;
+		background: var(--dark-grey-blue);
 		transition: background .4s ease-in-out;
 		@media (min-width: 480px) {
 			display: none;
@@ -212,7 +240,7 @@ const { title } = Astro.props;
 		display: block;
 		inline-size: 100%;
 		block-size: 2px;
-		background: green;
+		background: var(--dark-grey-blue);
 		transition: transform .3s ease-in-out;
 	}
 	
@@ -233,7 +261,7 @@ const { title } = Astro.props;
 	.header {
 		.menu {
 			position: fixed;
-			top: 80px;
+			top: 68px;
 			left: 0;
 			right: 0;
 			bottom: 0;

@@ -21,6 +21,7 @@ export class Plan {
   #$gThird = $('#g-third');
   #$gFour = $('#g-four');
   #$gFive = $('#g-five');
+  #$errorMessage = $('#message-error');
   #$fourTxt = $('.four-txt');
   #$grindDetailCollapse = $<HTMLDetailsElement>('#grind');
   #$frequencyDetailCollapse = $<HTMLDetailsElement>('#frequency')
@@ -160,9 +161,11 @@ export class Plan {
     
     if (!isShowOrderModal) {
       console.log('not valid')
+      this.#$errorMessage.style.display = 'inline-block';
       return
     }
     
+    this.#$errorMessage.style.display = 'none';
     this.renderOrderInModal();
     this.setTotalOrder();
     this.#$orderModal.showModal();
