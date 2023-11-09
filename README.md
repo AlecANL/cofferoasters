@@ -1,3 +1,15 @@
+# Frontend Mentor - Coffeeroasters subscription site solution
+
+This is a solution to the [Coffeeroasters subscription site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/coffeeroasters-subscription-site-5Fc26HVY6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+## Table of contents
+
+- [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+- [Author](#author)
+
 # Frontend Mentor - Coffeeroasters subscription site
 
 ![Design preview for the Coffeeroasters subscription site coding challenge](./preview.jpg)
@@ -46,4 +58,33 @@ The interactive subscription page has a number of specific behaviours, which are
     - If Every 2 Weeks is selected, the Order Summary modal should show the per shipment price multiplied by 2. For example, if 250g weight is selected, the price would be $19.20/month
     - If Every Month is selected, the Order Summary modal should show the per shipment price multiplied by 1. For example, if 250g weight is selected, the price would be $12.00/month
 
+
+
+
+### Screenshot
+
+![demo](https://github.com/AlecANL/cofferoasters/blob/main/public/gif/coffeeroasters.gif?raw=true)
+
+
+### Links
+
+- Solution URL: [repo](https://github.com/AlecANL/cofferoasters)
+- Live Site URL: [demo](https://cofferoasters-v1.netlify.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Astro](https://astro.build/) - JS library
+
+
+## Author
+
+- Frontend Mentor - [@alecanl](https://www.frontendmentor.io/profile/alecanl)
+- Twitter - [@alecanl](https://www.twitter.com/alecanl)
 
